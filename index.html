@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://choi-jun-won.github.io/typing_animation/typingaanimation.js"></script>
+</head>
+<body>
+
+<div id="body_m">
+    <section id="one" class="page" style="font-size: 200%;"><p>team.백야</p></section>
+    <section id="two" class="page"><p id="two_t"></p></section>
+    <section id="three" class="page">
+        <p>개발자 최준원</p>
+        <div class="flex_center">
+            <img src="https://github.com/CHOI-JUN-WON/white_night_notice_board/blob/main/02_15_S_%EC%B5%9C%EC%A4%80%EC%9B%90_0001_DSC_3146.JPG?raw=true">
+            <div>
+                <p>"저는 사회에 도음이 되는 프로그램을 만들어 사회에 기여하고 싶습니다."</p>
+                <p>영동초 소속<br>파이썬 자격증 획득<br>팀 백야</p>
+            </div>
+        </div>
+    </section>
+    <section id="four" class="page">
+        <p>작화 기획 백은우</p>
+        <div class="flex_center">
+            <div style="position: relative;">
+                <img style="width: 100%;height: 100%;" 
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuNycaS0e1GEhWkbaF5PjogofVpvSP-5xBTX7Wby3bmoxKIaG4NrgRX4-D5Ei7RaCa81s&usqp=CAU">
+                <div id="blockimage" style="width: 100%;height: 100%; position: absolute; backdrop-filter: blur(4px); top:0; transition: 0.6s;">
+                    <p style="width: 100%;background: rgba(240,248,255,0.55);cursor:pointer; text-align: center;"
+                       onclick="document.getElementById('blockimage').style.opacity=0;">이미지 보기 (클릭)</p>
+                </div>
+            </div>
+            <div>
+                <p>"돈 내놔"</p>
+                <p>영동초 소속<br>팀 백야</p>
+            </div>
+        </div>
+    </section>
+    <section id="five" class="page">
+        <p>기획 김주원</p>
+        <div class="flex_center">
+            <img src="https://img.freepik.com/free-photo/close-up-view-chinese-ink-concept_23-2148785899.jpg?semt=ais_hybrid&w=740&q=80" style="width:60%;height: 50%;">
+            <div>
+                <p>"저는 ...사실 저도 제가 뭔지 몰라요"</p>
+                <p>영동초 소속<br>팀 백야<br>사회 자격증</p>
+            </div>
+        </div>
+    </section>
+    <section id="six" class="page">
+        <p>홍보 박지효</p>
+        <p>"잘만들어줘 *_*"</p>
+        <p>영동초 소속<br>팀 백야<br>사회 자격증</p>
+    </section>
+    <section id="seaven" class="page">
+        <p>팀백야가 만든 게임 보러가기</p>
+        <p style="cursor: pointer;" onclick='re_d();'>게임시작</p>
+    </section>
+</div>
+
+<style>
+        @font-face { font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff'); font-weight: 100; font-display: swap; }
+body {
+    margin: 0;
+    font-family: 'Escoredream';
+    background-color: black;
+    color: white;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+#body_m {
+    scroll-snap-type: y mandatory;
+}
+
+.page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.flex_center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 20%;
+    height: auto;
+}
+</style>
+
+<script>
+    function re_d(){
+        window.location.href = "https://teamnottebianca.github.io/Game/";
+    }
+let sloganPlayed = false;
+const sections = document.querySelectorAll(".page");
+
+let observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.opacity = 1;
+            if(entry.target.id === "two" && !sloganPlayed){
+                runSlogans();
+                sloganPlayed = true;
+            }
+        } else {
+            entry.target.style.opacity = 0;
+        }
+    });
+});
+
+sections.forEach(sec => observer.observe(sec));
+
+const slogan = new TypingText('two_t', false);
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+async function runSlogans(){
+    await slogan.typings("We think \nUser experience is most important", 50);
+    await sleep(2000);
+    await slogan.backtypings(50);
+    await sleep(2000);
+    await slogan.typings("팀백야는 사용자 경험을 중시합니다.", 50);
+}
+
+// 마우스 휠로 한 화면씩 자동 스크롤
+// 마우스 휠로 한 화면씩 자동 스크롤 (휠 감도 증가)
+let isScrolling = false;
+window.addEventListener('wheel', e => {
+    if(isScrolling) return;
+    
+    const threshold = 50; // 최소 스크롤 값
+    console.log(Math.abs(e.deltaY));
+    if(Math.abs(e.deltaY) < threshold) return; // 너무 작은 스크롤 무시
+
+    isScrolling = true;
+    const delta = e.deltaY;
+    const currentIndex = Array.from(sections).findIndex(s => s.getBoundingClientRect().top >= 0);
+
+    if(delta > 0 && currentIndex < sections.length - 1){
+        sections[currentIndex+1].scrollIntoView({behavior:'smooth'});
+    } else if(delta < 0 && currentIndex > 0){
+        sections[currentIndex-1].scrollIntoView({behavior:'smooth'});
+    }
+
+    setTimeout(()=>{isScrolling=false;},800); // 다음 스크롤까지 딜레이
+});
+
+</script>
+
+</html>
