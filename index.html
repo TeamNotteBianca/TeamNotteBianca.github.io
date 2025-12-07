@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -163,4 +163,168 @@ window.addEventListener('wheel', e => {
 
 </script>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team.whitenight</title>
+    
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-myeongjo.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="main_div">
+        <div id="top-bar-m" style="display: flex;">
+            <p  style="margin-left: 1%;" id="logo" class="top-bar-child">team.whitenight</p>
+            <p  id="main-b"class="top-bar-child">main</p>
+            <p  id="ab_us"class="top-bar-child">About Us</p>
+            <p id="our-apps" class="top-bar-child">Our Apps</p>
+        </div>
+        <div id="body-d-m">
+            <div id="slide-b-m">
+                <div id="section1-s-b-m">
+                    <p id="sologun-t"></p>
+                </div>
+                
+            </div>
+            <div class="section2-m">
+                <div id="notice-b-m">
+                    <p>Notice</p>
+                    <div id="list-n-m">
+                        <p>We don't have any notice.</p>
+                    </div>
+                </div>
+                <div id="clock-b-m">
+                    <p>Clock</p>
+                    <p>
+                        clockexample
+                    </p>
+                </div>
+            </div>
+            <div id="copyrigt-d-m">
+                <p id="copy-c">Copyright © team.whitenight All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://choi-jun-won.github.io/typing_animation/typingaanimation.js"></script>
+<script>
+    const texts = new typing_text('sologun-t',false);
+    let section1=document.getElementById('section1-s-b-m');
+     let i = 0;
+        section1.style.backdropFilter = `blur(${i}px)`;
+
+        for (let i = 0; i <= 3; i += 0.1) {
+            setTimeout(function () {
+                section1.style.backdropFilter = `blur(${i}px)`;
+                section1.style.webkitBackdropFilter = `blur(${i}px)`;
+                console.log(i);
+            }, 250 * i);
+    }
+
+
+        setTimeout(function(){
+            texts.typings('We think \n User experience is most important',65);
+    },1500);
+    
+    
+</script>
+<style>
+
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 100,
+            'GRAD' 0,
+            'opsz' 24;
+            font-size: 150%;
+            margin-bottom: 0;
+        }
+        
+    #top-bar-m{
+        backdrop-filter: blur(8px);
+        border-bottom: solid 1px;
+        width: 100%;
+        height: 8vh;
+        position: fixed;
+    }
+    .top-bar-child{
+        margin: 0;
+        margin-top: 1%;
+        font-size: 150%;
+        margin-right: 2%;
+        width: 100%;
+        flex-grow: 1; /* <- 공간을 균등하게 배분합니다. */
+    }
+    #main_div{
+        background-image: url('https://github.com/TeamNotteBianca/notes/blob/main/20250927_140337.jpg?raw=true  ');
+        background-size: cover;
+
+        width: 100%;
+        height: 100vh;
+    }
+    body,head{
+        margin: 0;
+        font-family: 'NanumMyeongjo';
+        font-size: 130%;
+    }
+    #body-d-m{
+        width: 100%;
+        padding-top: 8vh;
+        height: 92vh;
+    }
+    #slide-b-m{
+        width: 100%;
+        height: 50vh;
+    }
+    .section2-m{
+        display: flex;
+        width: 100%;
+        height: 39vh;
+    }
+    #copyrigt-d-m{
+        background-color: #ffffff;
+        padding: 2px;
+    }
+    #copy-c{
+        font-size: 65%;
+       margin: 0;
+    }
+    p{
+        text-align: bottom;
+    }
+    #section1-s-b-m{
+        backdrop-filter: blur(0px);
+        transition: all 2s;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #sologun-t{
+        margin-top: 10%;
+        margin-bottom: 10%;
+        height: 30%;
+        text-align: center;
+    }
+     #notice-b-m{
+        border-right: solid 1px;
+        margin-right: 10px;
+         margin-left: 10px;
+     }
+    #notice-b-m,#clock-b-m{
+        width: 50%;
+        backdrop-filter: blur(1.5px);
+    }
+    ::selection {
+        background-color: #b9b9b97f; /* 드래그 배경색 */
+        color: #ffffff; /* 드래그 글자색 */
+    }
+
+    @import url('//fonts.googleapis.com/earlyaccess/nanummyeongjo.css');
+</style>
 </html>
